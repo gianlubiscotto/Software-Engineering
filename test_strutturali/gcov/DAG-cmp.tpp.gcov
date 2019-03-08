@@ -1,0 +1,286 @@
+        -:    0:Source:DAG-cmp.tpp
+        -:    0:Graph:DAG-main-test.gcno
+        -:    0:Data:DAG-main-test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <iostream> //for debugging
+        -:    2:#include "functions.h"
+        -:    3:#include "DAG.h"
+        -:    4:
+        -:    5:template <typename R> 
+function _ZN3DAGIiE3cmpEjj called 1 returned 100% blocks executed 100%
+        1:    6:CMP DAG<R>::cmp(N i1,N i2)
+        -:    7:{
+        1:    8:    return 'e';
+        -:    9:}
+        -:   10:
+        -:   11:template <typename R> 
+function _ZN3DAGIiE3cmpEjjj called 7 returned 100% blocks executed 100%
+        7:   12:CMP DAG<R>::cmp(N i1,N i2,N l)
+        -:   13:{
+        7:   14:    if (i1<i2)
+branch  0 taken 29% (fallthrough)
+branch  1 taken 71%
+        -:   15:    {
+        2:   16:		cout<<"cmp1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:   17:        if (i1==0){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   18:			cout<<"cmp3"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   19:			return c_lt;
+        -:   20:		}
+        -:   21:        else{
+        1:   22:			cout<<"cmp4"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   23:			return 'e';
+        -:   24:		} 
+        -:   25:    }
+        5:   26:    else if (i1==i2){
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:   27:		cout<<"cmp5"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   28:		return c_eq;
+        -:   29:	} 
+        4:   30:    else  if (i2==0){
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:   31:		cout<<"cmp7"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   32:		return c_gt;
+        -:   33:	} 
+        3:   34:	cout<<"cmp8"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   35:    //i1>i2>0
+        3:   36:    i1--;
+        3:   37:    i2--;
+        3:   38:    if (C[l][i1][i2]!='?'){
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+branch  3 taken 33% (fallthrough)
+branch  4 taken 67%
+        1:   39:		cout<<"cmp9"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   40:        return C[l][i1][i2];
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        -:   41:	}
+        2:   42:	cout<<"cmp10"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:   43:    C[l][i1][i2]=c_eq;
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        2:   44:    if (l==0){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   45:		cout<<"cmp11"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   46:        //cmp_a(leaf[i1],leaf[i2],C[l][i1][i2]);
+        -:   47:	}
+        -:   48:    else{
+        1:   49:		cout<<"cmp12"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   50:       // cmp(nodes[l-1][i1],nodes[l-1][i2],C[l][i1][i2],l-1);
+        -:   51:	}
+        2:   52:	cout<<"cmp13"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:   53:    return C[l][i1][i2];
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        -:   54:}
+        -:   55:
+        -:   56:template <typename R> 
+function _ZN3DAGIiE3cmpERK4NodeIiES4_Rcj called 4 returned 100% blocks executed 100%
+        4:   57:void DAG<R>::cmp(const Node<R> & X1, const Node<R> & X2, CMP & c, N l)
+        -:   58:{
+        4:   59:    N n1 = X1.x.size(), n2 = X2.x.size();
+call    0 returned 100%
+call    1 returned 100%
+        4:   60:    N i1 = 0, i2 = 0, u1 = 0, u2 = 0, ux1 = X1.ux[0], ux2 = X2.ux[0];
+call    0 returned 100%
+call    1 returned 100%
+        4:   61:    R x1=X1.x[i1], x2=X2.x[i2];
+call    0 returned 100%
+call    1 returned 100%
+       16:   62:    while (c != c_no && i1 < n1 && i2 < n2)
+branch  0 taken 90% (fallthrough)
+branch  1 taken 10%
+branch  2 taken 78% (fallthrough)
+branch  3 taken 22%
+branch  4 taken 86% (fallthrough)
+branch  5 taken 14%
+        -:   63:    {
+        6:   64:		cout<<"cmp1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        6:   65:        if (x1 < x2)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        -:   66:        {	
+        2:   67:			cout<<"cmp2"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   68:            //c=c_and(c,cmp(ux1,u2,l));
+        2:   69:            i1++;
+        2:   70:            if (i1 < n1)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   71:            {
+        1:   72:				cout<<"cmp3"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   73:                u1 = X1.u[i1 - 1];
+call    0 returned 100%
+        1:   74:                ux1 = X1.ux[i1];
+call    0 returned 100%
+        1:   75:                x1=X1.x[i1];
+call    0 returned 100%
+        -:   76:            }
+        -:   77:            else{
+        1:   78:				cout<<"cmp4"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   79:                u1 = 0;
+        -:   80:			}
+        -:   81:        }
+        4:   82:        else if (x1 > x2)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   83:        {
+        2:   84:			cout<<"cmp5"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   85:            //c=c_and(c,cmp(u1,ux2,l));
+        2:   86:            i2++;
+        2:   87:            if (i2 < n2)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   88:            {
+        1:   89:				cout<<"cmp6"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   90:                u2 = X2.u[i2 - 1];
+call    0 returned 100%
+        1:   91:                ux2 = X2.ux[i2];
+call    0 returned 100%
+        1:   92:                x2=X2.x[i2];
+call    0 returned 100%
+        -:   93:            }
+        -:   94:            else{
+        1:   95:				cout<<"cmp7"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   96:                u2 = 0;
+        -:   97:			}
+        -:   98:        }
+        -:   99:        else
+        -:  100:        {
+        2:  101:			cout<<"cmp8"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:  102:            //c=c_and(c,cmp(ux1,ux2,l));
+        2:  103:            i1++;
+        2:  104:            if (i1 < n1)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  105:            {
+        1:  106:				cout<<"cmp9"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:  107:                u1 = X1.u[i1 - 1];
+call    0 returned 100%
+        1:  108:                ux1 = X1.ux[i1];
+call    0 returned 100%
+        1:  109:                x1=X1.x[i1];
+call    0 returned 100%
+        -:  110:            }
+        -:  111:            else{
+        1:  112:				cout<<"cmp10"<<endl;                
+call    0 returned 100%
+call    1 returned 100%
+        1:  113:				u1 = 0;
+        -:  114:			}
+        2:  115:            i2++;
+        2:  116:            if (i2 < n2)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  117:            {	
+        1:  118:				cout<<"cmp11"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:  119:                u2 = X2.u[i2 - 1];
+call    0 returned 100%
+        1:  120:                ux2 = X2.ux[i2];
+call    0 returned 100%
+        1:  121:                x2=X2.x[i2];
+call    0 returned 100%
+        -:  122:            }
+        -:  123:            else{
+        1:  124:				cout<<"cmp12"<<endl;                
+call    0 returned 100%
+call    1 returned 100%
+        1:  125:				u2 = 0;
+        -:  126:			}
+        -:  127:        }
+        -:  128:        //c=c_and(c,cmp(u1,u2,l));
+        -:  129:    }
+        4:  130:	cout<<"cmp13"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        4:  131:    if (c == c_no){
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:  132:		cout<<"cmp14"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:  133:        return;
+        -:  134:	}
+        3:  135:	cout<<"cmp15"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        3:  136:    if (i1 == n1 && i2 == n2){
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        1:  137:		cout<<"cmp16"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:  138:        return;
+        -:  139:	}
+        2:  140:	cout<<"cmp17"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:  141:    if (i1 < n1){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:  142:		cout<<"cmp18"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:  143:        //c = c_and(c, c_gt);
+        -:  144:	}
+        -:  145:    else{
+        1:  146:		cout<<"cmp19"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:  147:        //c = c_and(c, c_lt);
+        -:  148:	}
+        -:  149:}
+        -:  150:

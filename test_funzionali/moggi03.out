@@ -1,0 +1,48 @@
+D 2
+Dag of dimension 2 created
+
+e
+***Adding empty union of Boxes***
+
+Box [0,1]x[0,1]
+a
+***Adding Box to union***
+	adding 1 to 0 produce 1
+
+Box [1,2]x[1,2]
+a
+***Adding Box to union***
+	adding 2 to 1 produce 3
+
+Box [0,1]x[2,3]
+a
+***Adding Box to union***
+	adding 4 to 3 produce 5
+
+e
+***Adding empty union of Boxes***
+
+Box [1]x[0,3]
+a
+***Adding Box to union***
+	adding 6 to 0 produce 6
+
+vUB's values: 5 6 
+***Printing graph***
+2 levels
+level 0
+	1:[0,1]
+	2:[1,2]
+	3:[0,2]
+	4:[1]
+level 1
+	1:[0,1]1[1,1]
+	2:[1,2]2[2,2]
+	3:[0,1]1[1,3]2[2,2]
+	4:[2,1]1[3,1]
+	5:[0,1]1[1,3]2[2,3]1[3,1]
+	6:[0,4]4[3,4]
+
+Comparing vUB[0]=5 and vUB[1]=6
+vUB[0] is greater than vUB[1]
+

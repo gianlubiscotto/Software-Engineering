@@ -1,0 +1,61 @@
+D 1
+Dag of dimension 1 created
+
+e
+***Adding empty union of Boxes***
+
+Box [0,1]
+a
+***Adding Box to union***
+	adding 1 to 0 produce 1
+
+Box [2,3]
+a
+***Adding Box to union***
+	adding 2 to 1 produce 3
+
+Box [4,7]
+a
+***Adding Box to union***
+	adding 4 to 3 produce 5
+
+e
+***Adding empty union of Boxes***
+
+Box [1,2]
+a
+***Adding Box to union***
+	adding 6 to 0 produce 6
+
+Box [5,6]
+a
+***Adding Box to union***
+	adding 7 to 6 produce 8
+
+Box [7,8]
+a
+***Adding Box to union***
+	adding 9 to 8 produce 10
+
+Comparing vUB[0]=5 and vUB[1]=10
+vUB[0] is not comparable to vUB[1]
+
+Joining vUB[0]=5 and vUB[1]=10
+Result added to vUB[2]=11
+
+vUB's values: 5 10 11 
+***Printing graph***
+1 levels
+level 0
+	1:[0,1]
+	2:[2,3]
+	3:[0,1]+[2,3]
+	4:[4,7]
+	5:[0,1]+[2,3]+[4,7]
+	6:[1,2]
+	7:[5,6]
+	8:[1,2]+[5,6]
+	9:[7,8]
+	10:[1,2]+[5,6]+[7,8]
+	11:[0,3]+[4,8]
+

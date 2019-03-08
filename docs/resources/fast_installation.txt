@@ -1,0 +1,38 @@
+Safe instructions for linux Ubuntu 16.04 lts.
+
+Make sure to have installed: 
+	uuid-dev m4 mercurial 
+	git
+    cmake and cmake-curses-gui
+    libcln6, libcln-dev, libgmp-dev and libgmpxxv4-4 
+    libeigen3-dev
+    g++ or clang
+    libboost-dev
+    doxygen
+Otherwise install them using sudo apt-get install [package].
+
+Then type the following command lines:
+
+git clone http://github.com/smtrat/carl
+
+mkdir carl/build
+
+pushd carl/build
+
+cmake ..
+
+make lib_carl -j3
+
+popd
+
+git clone http://github.com/hypro/hypro
+
+mkdir hypro/build
+
+pushd hypro/build
+
+cmake ..
+
+make hypro -j3
+
+popd

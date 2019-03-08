@@ -1,0 +1,1 @@
+Compilare ed eseguire template-GC/main-debug.cpp che in automatico chiederà un file di input (test) e un file di output su cui scriverà i risultati del test. Per comprendere la struttura di un test e comprendere il suo output assicurarsi di leggere docs/resources/readme-test.odt e docs/drs/drs.

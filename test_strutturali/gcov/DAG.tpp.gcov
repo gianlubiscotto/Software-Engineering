@@ -1,0 +1,337 @@
+        -:    0:Source:DAG.tpp
+        -:    0:Graph:DAG-main-test.gcno
+        -:    0:Data:DAG-main-test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <iostream> //for debugging
+        -:    2:#include "functions.h"
+        -:    3:#include "DAG.h"
+        -:    4:
+        -:    5:template <typename R> 
+function _ZlsIiERSoS0_RK4NodeIT_E called 1 returned 100% blocks executed 100%
+        1:    6:ostream & operator<<(ostream & cout, const Node<R> & X)
+        -:    7:{
+        1:    8:    N n=X.x.size();
+call    0 returned 100%
+        1:    9:    cout<<'['<<X.x[0]<<','<<X.ux[0]<<']';
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+call    3 returned 100%
+call    4 returned 100%
+call    5 returned 100%
+call    6 returned 100%
+        2:   10:    for (N i=1; i<n; i++)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   11:        cout<<X.u[i-1]<<'['<<X.x[i]<<','<<X.ux[i]<<']';
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+call    3 returned 100%
+call    4 returned 100%
+call    5 returned 100%
+call    6 returned 100%
+call    7 returned 100%
+call    8 returned 100%
+        1:   12:    return cout;
+        -:   13:}
+        -:   14:
+        -:   15:template <typename R> 
+function _ZN3DAGIiEC2Ej called 2 returned 100% blocks executed 71%
+        2:   16:DAG<R>::DAG (N d)
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+call    3 returned 100%
+call    4 never executed
+call    5 never executed
+call    6 never executed
+call    7 never executed
+        -:   17:{
+        2:   18:    if (d==0)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   19:    {	
+        1:   20:		cout<<"DAG1"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   21:        cout << "bad DAG initialization"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   22:        return;
+        -:   23:    }
+        1:   24:	cout<<"DAG2"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   25:    nodes.resize(d-1);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        1:   26:    C.resize(d);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        1:   27:    U.resize(d);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        -:   28:}
+        -:   29:
+        -:   30:template <typename R> 
+function _ZNK3DAGIiE3dimEv called 6 returned 100% blocks executed 100%
+        6:   31:N DAG<R>::dim () const
+        -:   32:{	
+        6:   33:	cout<<"dim1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        6:   34:    return nodes.size()+1;
+call    0 returned 100%
+        -:   35:}
+        -:   36:
+        -:   37:template <typename R> 
+function _ZNK3DAGIiE10print_testERSo called 1 returned 100% blocks executed 78%
+        1:   38:void DAG<R>::print_test(ostream &cout) const
+        -:   39:{
+        1:   40:    N d=dim();
+call    0 returned 100%
+        1:   41:    cout<<d<<" levels"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        1:   42:    cout<<"level "<<0<<endl;
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        1:   43:    N n=leaf.size();
+call    0 returned 100%
+        3:   44:    for (N i=0; i<n; i++)
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        2:   45:        cout<<'\t'<<i+1<<':'<<leaf[i]<<endl;
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+call    3 returned 100%
+call    4 returned 100%
+call    5 returned 100%
+        2:   46:    for(N l=0; l<d-1; l++)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   47:    {
+        1:   48:        cout<<"level "<<l+1<<endl;
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        1:   49:        N n=nodes[l].size();
+call    0 returned 100%
+call    1 returned 100%
+        1:   50:        for (N i=0; i<n; i++)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   51:            cout<<'\t'<<i+1<<':'<<nodes[l][i]<<endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+call    6 never executed
+        -:   52:    }
+        1:   53:}
+        -:   54:
+        -:   55:template <typename R> 
+function _ZNK3DAGIiE5emptyEv called 1 returned 100% blocks executed 100%
+        1:   56:N DAG<R>::empty () const
+        -:   57:{
+        1:   58:	cout<<"empty1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   59:    return 0;
+        -:   60:}
+        -:   61:
+        -:   62:template <typename R> 
+function _ZN3DAGIiE8add_leafERK4U_IRIiE called 3 returned 100% blocks executed 84%
+        3:   63:N DAG<R>::add_leaf(const Leaf<R>& X)
+        -:   64:{	
+        3:   65:    if (X.S.size()==0){
+call    0 returned 100%
+branch  1 taken 33% (fallthrough)
+branch  2 taken 67%
+        1:   66:		cout<<"leaf1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   67:		return 0;	
+        -:   68:	} 
+        2:   69:	cout<<"leaf2"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:   70:    N n=leaf.size();
+call    0 returned 100%
+        3:   71:    for (N i=0; i<n; i++){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   72:		cout<<"leaf3"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   73:		if (leaf[i]==X){
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:   74:			cout<<"leaf4"<<endl;
+call    0 never executed
+call    1 never executed
+    #####:   75:			return i+1;	
+        -:   76:		}
+        1:   77:		cout<<"leaf5"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   78:	}  
+        2:   79:	cout<<"leaf6"<<endl;  
+call    0 returned 100%
+call    1 returned 100%
+        2:   80:	leaf.push_back(X);
+call    0 returned 100%
+        2:   81:    C[0].resize(n+1);
+call    0 returned 100%
+call    1 returned 100%
+        2:   82:    C[0][n]=vector<CMP>(n,'?');
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+call    4 returned 100%
+call    5 returned 100%
+call    6 returned 100%
+call    7 returned 100%
+call    8 returned 100%
+call    9 never executed
+call   10 never executed
+        2:   83:    U[0].resize(n+1);
+call    0 returned 100%
+call    1 returned 100%
+        2:   84:    U[0][n]=vector<N>(n,0);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+call    4 returned 100%
+call    5 returned 100%
+call    6 returned 100%
+call    7 returned 100%
+call    8 returned 100%
+call    9 never executed
+        2:   85:    return n+1;
+        -:   86:}
+        -:   87:
+        -:   88:template <typename R> 
+function _ZN3DAGIiE8add_nodeERK4NodeIiEj called 5 returned 100% blocks executed 92%
+        5:   89:N DAG<R>::add_node(const Node<R>& X, N l)
+        -:   90:{
+        5:   91:    if (l==0 || l>=dim())
+branch  0 taken 80% (fallthrough)
+branch  1 taken 20%
+call    2 returned 100%
+branch  3 taken 0% (fallthrough)
+branch  4 taken 100%
+branch  5 taken 20% (fallthrough)
+branch  6 taken 80%
+        -:   92:    {
+        1:   93:		cout<<"node1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   94:        cout << "wrong level in add_node"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   95:        return 0;
+        -:   96:    }
+        4:   97:	cout<<"node2"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        4:   98:    if (X.x.size()==0){
+call    0 returned 100%
+branch  1 taken 25% (fallthrough)
+branch  2 taken 75%
+        1:   99:		cout<<"node3"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:  100:		return 0;
+        -:  101:	} 
+        3:  102:	cout<<"node4"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        3:  103:    N n=nodes[l-1].size();
+call    0 returned 100%
+call    1 returned 100%
+        5:  104:    for (N i=0; i<n; i++){
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        3:  105:		cout<<"node5"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        3:  106:        if (nodes[l-1][i]==X){
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+branch  3 taken 33% (fallthrough)
+branch  4 taken 67%
+        1:  107:			cout<<"node6"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:  108:			return i+1;
+        -:  109:		} 
+        2:  110:		cout<<"node7"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:  111:	}
+        2:  112:	cout<<"node8"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:  113:    nodes[l-1].push_back(X);
+call    0 returned 100%
+call    1 returned 100%
+        2:  114:    C[l].resize(n+1);
+call    0 returned 100%
+call    1 returned 100%
+        2:  115:    C[l][n]=vector<CMP>(n,'?');
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+call    4 returned 100%
+call    5 returned 100%
+call    6 returned 100%
+call    7 returned 100%
+call    8 returned 100%
+call    9 never executed
+call   10 never executed
+        2:  116:    U[l].resize(n+1);
+call    0 returned 100%
+call    1 returned 100%
+        2:  117:    U[l][n]=vector<N>(n,0);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+call    4 returned 100%
+call    5 returned 100%
+call    6 returned 100%
+call    7 returned 100%
+call    8 returned 100%
+call    9 never executed
+        2:  118:    return n+1;
+        -:  119:}
+        -:  120:

@@ -1,0 +1,71 @@
+        -:    0:Source:basic.tpp
+        -:    0:Graph:BASIC-main-test.gcno
+        -:    0:Data:BASIC-main-test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "types.h"
+        -:    2:#include "functions.h"
+        -:    3:
+        -:    4://CMP
+function _Z5c_andcc called 6 returned 100% blocks executed 100%
+        6:    5:CMP c_and(CMP c1, CMP c2)
+        -:    6:{
+        6:    7:    if (c1 == c_no)
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        1:    8:        return c_no;
+        5:    9:    if (c2 == c_no)
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:   10:        return c_no;
+        4:   11:    if (c1 == c_eq)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:   12:        return c2;
+        3:   13:    if (c2 == c_eq)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   14:        return c1;
+        2:   15:    if (c1 == c2)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   16:        return c1;
+        1:   17:    return c_no;
+        -:   18:}
+        -:   19:
+function _Z5c_notc called 4 returned 100% blocks executed 100%
+        4:   20:CMP c_not(CMP c)
+        -:   21:{
+        4:   22:    if (c==c_lt) return c_gt;
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        3:   23:    else if (c==c_gt) return c_lt;
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        2:   24:    else return c;
+        -:   25:}
+        -:   26:
+        -:   27://R
+        -:   28:template <typename R>
+function _Z3MinIiET_S0_S0_ called 2 returned 100% blocks executed 100%
+        2:   29:R Min(R x1, R x2)
+        -:   30:{
+        2:   31:    if (x1 < x2)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   32:        return x1;
+        -:   33:    else
+        1:   34:        return x2;
+        -:   35:}
+        -:   36:template <typename R>
+function _Z3MaxIiET_S0_S0_ called 2 returned 100% blocks executed 100%
+        2:   37:R Max(R x1, R x2)
+        -:   38:{
+        2:   39:    if (x1 < x2)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   40:        return x2;
+        -:   41:    else
+        1:   42:        return x1;
+        -:   43:}
+        -:   44:

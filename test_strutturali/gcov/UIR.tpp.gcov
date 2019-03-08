@@ -1,0 +1,669 @@
+        -:    0:Source:UIR.tpp
+        -:    0:Graph:UIR-main-test.gcno
+        -:    0:Data:UIR-main-test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <algorithm>
+        -:    2:#include "types.h"
+        -:    3:#include "functions.h"
+        -:    4:
+        -:    5:// NAIVE IMPLEMENTATION: use linear instead of binary search
+        -:    6:template <typename R> 
+function _Z4sizeIiEjRK4U_IRIT_E called 12 returned 100% blocks executed 100%
+       12:    7:N size (const U_IR<R>& X)
+        -:    8:{
+       12:    9:    return X.S.size();
+call    0 returned 100%
+        -:   10:}
+        -:   11:
+        -:   12:template <typename R> 
+function _ZeqIiEbRK4U_IRIT_ES4_ called 1 returned 100% blocks executed 100%
+        1:   13:bool operator==(const U_IR<R> & X1, const U_IR<R> & X2)
+        -:   14:{
+        1:   15:    return X1.S == X2.S;
+call    0 returned 100%
+        -:   16:}
+        -:   17:template <typename R> 
+function _ZleIiEbRK4U_IRIT_ES4_ called 4 returned 100% blocks executed 100%
+        4:   18:bool operator<=(const U_IR<R> & X1, const U_IR<R> & X2)
+        -:   19:{
+        4:   20:    N n1 =X1.S.size(), n2=X2.S.size();
+call    0 returned 100%
+call    1 returned 100%
+        4:   21:    N i1=0, i2=0;
+        8:   22:    while (i1<n1 && i2<n2)
+branch  0 taken 83% (fallthrough)
+branch  1 taken 17%
+branch  2 taken 80% (fallthrough)
+branch  3 taken 20%
+        -:   23:    {
+        4:   24:		cout<<"uir1"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        4:   25:        IR<R> I1=X1.S[i1], I2=X2.S[i2];
+call    0 returned 100%
+call    1 returned 100%
+        4:   26:        if (I1.u<I2.l){
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:   27:			cout<<"uir2"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        3:   28:			return false;
+        -:   29:		}        
+        3:   30:		else if(I1.l>I2.u){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   31:			cout<<"uir3"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   32:			i2++;
+        -:   33:		}
+        2:   34:        else if (!(I1<=I2)){
+call    0 returned 100%
+branch  1 taken 50% (fallthrough)
+branch  2 taken 50%
+        1:   35:			cout<<"uir4"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   36:			return false;
+        -:   37:		}
+        -:   38:        else{
+        1:   39:			cout<<"uir5"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   40:			i1++;
+        -:   41:		}
+        -:   42:    }
+        2:   43:	cout<<"uir6"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:   44:    return i1==n1;
+        -:   45:}
+        -:   46:template <typename R> 
+function _Z5cmp_aIiEvRK4U_IRIT_ES4_Rc called 10 returned 100% blocks executed 100%
+       10:   47:void cmp_a(const U_IR<R> & X1, const U_IR<R> & X2, CMP & c)
+        -:   48:{
+       10:   49:    if (c==c_no){
+branch  0 taken 10% (fallthrough)
+branch  1 taken 90%
+        1:   50:		cout<<"cmp_a1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   51:		return;	
+        -:   52:	} 
+        9:   53:	cout<<"cmp_a2"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        9:   54:    N n1 =X1.S.size(), n2=X2.S.size();
+call    0 returned 100%
+call    1 returned 100%
+        -:   55:    N i, n;
+        9:   56:    if (n1<n2){
+branch  0 taken 22% (fallthrough)
+branch  1 taken 78%
+        2:   57:		cout<<"cmp_a3"<<endl;	
+call    0 returned 100%
+call    1 returned 100%
+        2:   58:		n=n1;
+        -:   59:	} 
+        -:   60:    else{
+        7:   61:		cout<<"cmp_a4"<<endl; 
+call    0 returned 100%
+call    1 returned 100%
+        7:   62:		n=n2;
+        -:   63:	}
+        9:   64:    for (i = 0; i < n && X1.S[i]==X2.S[i]; i++);
+branch  0 taken 77% (fallthrough)
+branch  1 taken 23%
+call    2 returned 100%
+call    3 returned 100%
+call    4 returned 100%
+branch  5 taken 40% (fallthrough)
+branch  6 taken 60%
+branch  7 taken 31% (fallthrough)
+branch  8 taken 69%
+        9:   65:    if (i==n)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        -:   66:    {
+        3:   67:		cout<<"cmp_a5"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        3:   68:        if (n1<n2){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   69:			cout<<"cmp_a6"<<endl;		
+call    0 returned 100%
+call    1 returned 100%
+        -:   70:		} 
+        2:   71:        else if(n1>n2) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   72:			cout<<"cmp_a7"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   73:		} 
+        3:   74:        return;
+        -:   75:    }
+        6:   76:	cout<<"cmp_a8"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   77:    //i<n
+        6:   78:    N i1=i, i2=i;
+       32:   79:    while (c!=c_no && i1<n1 && i2<n2)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 79% (fallthrough)
+branch  3 taken 21%
+branch  4 taken 87% (fallthrough)
+branch  5 taken 13%
+        -:   80:    {
+       13:   81:		cout<<"cmp_a9"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+       13:   82:        IR<R> I1=X1.S[i1], I2=X2.S[i2];
+call    0 returned 100%
+call    1 returned 100%
+       13:   83:        if (I1.u<I2.l)
+branch  0 taken 15% (fallthrough)
+branch  1 taken 85%
+        -:   84:        {
+        2:   85:			cout<<"cmp_a10"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:   86:            i1++;
+        -:   87:        }
+       11:   88:        else if (I1.l>I2.u)
+branch  0 taken 9% (fallthrough)
+branch  1 taken 91%
+        -:   89:        {
+        1:   90:			cout<<"cmp_a11"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   91:            i2++;
+        -:   92:        }
+        -:   93:        else
+        -:   94:        {
+       10:   95:			cout<<"cmp_a12"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        -:   96:            //cmp_a(I1,I2,c);
+       10:   97:            if (I1.u<I2.u){ 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   98:				cout<<"cmp_a13"<<endl;				
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        5:   99:				i1++;
+        -:  100:			}
+        5:  101:            else if (I1.u>I2.u) {
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        3:  102:				cout<<"cmp_a14"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        3:  103:				i2++;
+        -:  104:			}
+        -:  105:            else
+        -:  106:            {
+        2:  107:				cout<<"cmp_a15"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  108:                i1++;
+        2:  109:                i2++;
+        -:  110:            }
+        -:  111:        }
+        -:  112:    }
+        6:  113:	c=c_and(c,c_gt);
+call    0 returned 100%
+        6:  114:	cout<<"cmp_a16"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        6:  115:    if (c==c_no){ 
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        1:  116:		cout<<"cmp_a17"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:  117:		return;
+        -:  118:	}
+        5:  119:    if (n1 < n2){
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:  120:		cout<<"cmp_a18"<<endl;	
+call    0 returned 100%
+call    1 returned 100%
+        -:  121:		//c = c_and(c, c_lt);
+        -:  122:	}
+        -:  123:        
+        4:  124:    else if (n1 > n2){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        2:  125:		cout<<"cmp_a19"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:  126:        c = c_and(c, c_gt);
+call    0 returned 100%
+        -:  127:	}
+        5:  128:	cout<<"cmp_a20"<<endl;    
+call    0 returned 100%
+call    1 returned 100%
+        5:  129:	return;
+        -:  130:}
+        -:  131:template <typename R> 
+function _ZlsIiERSoS0_RK4U_IRIT_E called 6 returned 100% blocks executed 100%
+        6:  132:ostream & operator<<(ostream & stream, const U_IR<R> & X)
+        -:  133:{
+        6:  134:    N n = X.S.size();
+call    0 returned 100%
+        6:  135:    if (n == 0)
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        1:  136:        stream << "0";
+call    0 returned 100%
+        -:  137:    else
+        -:  138:    {
+        5:  139:        stream << X.S[0];
+call    0 returned 100%
+call    1 returned 100%
+       10:  140:        for (N i = 1; i < n; i++)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:  141:            stream << "+" << X.S[i];
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        -:  142:    }
+        6:  143:    return stream;
+        -:  144:}
+        -:  145:template <typename R> 
+function _Z3addIiEvR4U_IRIT_ERK2IRIS1_E called 4 returned 100% blocks executed 86%
+        4:  146:void add(U_IR<R> &U, const IR<R> & I)
+        -:  147:{
+        4:  148:    N n = U.S.size();
+call    0 returned 100%
+        4:  149:    if (n==0)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        -:  150:    {
+        1:  151:        U.S.push_back(I);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        4:  152:        return;
+        -:  153:    }
+        3:  154:    R l=I.l, u=I.u;
+        3:  155:    if (U.S[n-1].u<l)
+call    0 returned 100%
+branch  1 taken 33% (fallthrough)
+branch  2 taken 67%
+        -:  156:    {
+        1:  157:        U.S.push_back(I);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        1:  158:        return;
+        -:  159:    }
+        2:  160:    typename vector < IR <R> >::iterator it = U.S.begin();
+call    0 returned 100%
+        -:  161:
+        -:  162:    N i, j;
+        2:  163:    for (i=0; U.S[i].u<l; i++);
+call    0 returned 100%
+branch  1 taken 50% (fallthrough)
+branch  2 taken 50%
+        -:  164:    //smallest i st l<=U.S[i].u
+        2:  165:    if (u<U.S[i].l)
+call    0 returned 100%
+branch  1 taken 50% (fallthrough)
+branch  2 taken 50%
+        -:  166:    {
+        1:  167:        U.S.insert(it+i,I);
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+branch  3 taken 100% (fallthrough)
+branch  4 taken 0% (throw)
+        1:  168:        return;
+        -:  169:    }
+        1:  170:    U.S[i].l=Min(l,U.S[i].l);
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        -:  171:    //U.S[i].l<=u
+        1:  172:    for (j=i+1; j<n &&U.S[j].l<=u; j++);
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+call    2 returned 100%
+branch  3 taken 100% (fallthrough)
+branch  4 taken 0%
+branch  5 taken 50% (fallthrough)
+branch  6 taken 50%
+        1:  173:    U.S[i].u=Max(u,U.S[j-1].u);
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        1:  174:    U.S.erase(it+i+1,it+j);
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+call    3 returned 100%
+call    4 returned 100%
+call    5 returned 100%
+branch  6 taken 100% (fallthrough)
+branch  7 taken 0% (throw)
+        -:  175:}
+        -:  176:template <typename R> 
+function _ZleIiEbRK2IRIT_ERK4U_IRIS1_E called 2 returned 100% blocks executed 100%
+        2:  177:bool operator<=(const IR<R> & I, const U_IR<R> & U)
+        -:  178:{
+        2:  179:    R l=I.l;
+        2:  180:    N n = U.S.size(), i;
+call    0 returned 100%
+        2:  181:    for (i=0; i<n&&U.S[i].u<l; i++);
+branch  0 taken 80% (fallthrough)
+branch  1 taken 20%
+call    2 returned 100%
+branch  3 taken 75% (fallthrough)
+branch  4 taken 25%
+branch  5 taken 60% (fallthrough)
+branch  6 taken 40%
+        2:  182:    if (i == n){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:  183:		return false;
+        -:  184:	} 
+        -:  185:    //smallest i st l<=U.S[i].u
+        -:  186:    else{
+        1:  187:		return I<=U.S[i];
+call    0 returned 100%
+call    1 returned 100%
+        -:  188:	} 
+        -:  189:}
+        -:  190:template <typename R> 
+function _ZplIiE4U_IRIT_ERKS2_S4_ called 6 returned 100% blocks executed 98%
+        6:  191:U_IR<R> operator+(const U_IR<R> &U1, const U_IR<R> &U2)
+        -:  192:{
+        6:  193:    U_IR<R> U;
+call    0 returned 100%
+        6:  194:    N n1=size(U1), n2=size(U2);
+call    0 returned 100%
+call    1 returned 100%
+        6:  195:    if (n1==0){ 
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        1:  196:		cout<<"+1"<<endl;	
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  197:		U=U1;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        -:  198:	}
+        5:  199:    else if (n2==0){
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:  200:		cout<<"+2"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  201:		U=U2;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        -:  202:	}
+        -:  203:    else
+        -:  204:    {
+        4:  205:		cout<<"+3"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        4:  206:        N i1=0, i2=0;
+        4:  207:        IR<R> I1=U1.S[i1], I2=U2.S[i2];
+call    0 returned 100%
+call    1 returned 100%
+       36:  208:        while (i1<n1 && i2<n2)
+branch  0 taken 90% (fallthrough)
+branch  1 taken 10%
+branch  2 taken 89% (fallthrough)
+branch  3 taken 11%
+       16:  209:            if (I1.u<I2.l)
+branch  0 taken 13% (fallthrough)
+branch  1 taken 88%
+        -:  210:            {
+        2:  211:				cout<<"+4"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  212:                U.S.push_back(I1);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        2:  213:                i1++;
+        2:  214:                if (i1<n1){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        2:  215:					cout<<"+5"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  216:					I1=U1.S[i1];
+call    0 returned 100%
+        -:  217:				}
+        -:  218:            }
+       14:  219:            else if (I2.u<I1.l)
+branch  0 taken 14% (fallthrough)
+branch  1 taken 86%
+        -:  220:            {
+        2:  221:				cout<<"+6"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  222:                U.S.push_back(I2);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        2:  223:                i2++;
+        2:  224:                if (i2<n2){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        2:  225:					cout<<"+7"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  226:					I2=U2.S[i2];
+call    0 returned 100%
+        -:  227:				}
+        -:  228:            }
+       12:  229:            else if (I1.u<I2.u)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  230:            {	
+        6:  231:				cout<<"+8"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        6:  232:                I2.l=Min(I1.l,I2.l);
+call    0 returned 100%
+        6:  233:                i1++;
+        6:  234:                if (i1<n1){
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        4:  235:					cout<<"+9"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        4:  236:					I1=U1.S[i1];
+call    0 returned 100%
+        -:  237:				}
+        -:  238:            }
+        -:  239:            else
+        -:  240:            {
+        6:  241:				cout<<"+10"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        6:  242:                I1.l=Min(I1.l,I2.l);
+call    0 returned 100%
+        6:  243:                i2++;
+        6:  244:                if (i2<n2){
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        4:  245:					cout<<"+11"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        4:  246:					I2=U2.S[i2];
+call    0 returned 100%
+        -:  247:				}
+        -:  248:            };
+        4:  249:        if (i1<n1)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  250:        {
+        2:  251:			cout<<"+12"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  252:            U.S.push_back(I1);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        3:  253:            for (i1++; i1<n1; i1++){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:  254:				cout<<"+13"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  255:                U.S.push_back(U1.S[i1]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        -:  256:			}
+        -:  257:        }
+        -:  258:        else
+        -:  259:        {
+        2:  260:			cout<<"+14"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  261:            U.S.push_back(I2);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        3:  262:            for (i2++; i2<n2; i2++){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:  263:				cout<<"+15"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  264:                U.S.push_back(U2.S[i2]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        -:  265:        	}
+        -:  266:		}
+        -:  267:    }
+        6:  268:    return U;
+call    0 never executed
+        -:  269:}
+        -:  270:

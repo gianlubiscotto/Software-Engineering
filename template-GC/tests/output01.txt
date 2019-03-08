@@ -1,0 +1,52 @@
+D 1
+Dag of dimension 1 created
+
+e
+***Adding empty union of Boxes***
+
+Box [1,3]
+a
+***Adding Box to union***
+	adding 1 to 0 produce 1
+
+Box [1,5]
+a
+***Adding Box to union***
+	adding 2 to 1 produce 2
+
+Box [2,4]
+c
+***Checking for coverage...***
+Box is covered by last UB
+
+Box [7,8]
+a
+***Adding Box to union***
+	adding 3 to 2 produce 4
+
+Box [5,7]
+c
+***Checking for coverage...***
+Box is not covered!
+
+Box [5,7]
+a
+***Adding Box to union***
+	adding 5 to 4 produce 6
+
+Box [5,7]
+c
+***Checking for coverage...***
+Box is covered by last UB
+
+vUB's values: 6 
+***Printing graph***
+1 levels
+level 0
+	1:[1,3]
+	2:[1,5]
+	3:[7,8]
+	4:[1,5]+[7,8]
+	5:[5,7]
+	6:[1,8]
+

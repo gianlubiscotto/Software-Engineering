@@ -1,0 +1,146 @@
+        -:    0:Source:BR.tpp
+        -:    0:Graph:BR-main-test.gcno
+        -:    0:Data:BR-main-test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "types.h"
+        -:    2:#include "functions.h"
+        -:    3:
+        -:    4://POINTS IN R^d
+        -:    5:template <typename R> 
+function _Z3dimIiEjRK2PRIT_E called 1 returned 100% blocks executed 100%
+        1:    6:N dim (const PR<R>& X)
+        -:    7:{
+        1:    8:    return X.x.size();
+call    0 returned 100%
+        -:    9:}
+        -:   10:
+        -:   11://BOXES IN R^d
+        -:   12:template <typename R> 
+function _Z3dimIiEjRK2BRIT_E called 1 returned 100% blocks executed 100%
+        1:   13:N dim (const BR<R>& X)
+        -:   14:{
+        1:   15:    return X.x.size();
+call    0 returned 100%
+        -:   16:}
+        -:   17:
+        -:   18:template <typename R> 
+function _ZeqIiEbRK2BRIT_ES4_ called 1 returned 100% blocks executed 100%
+        1:   19:bool operator==(const BR<R> & X1, const BR<R> & X2)
+        -:   20:{
+        1:   21:    return X1.x == X2.x;
+call    0 returned 100%
+        -:   22:}
+        -:   23:template <typename R> 
+function _ZleIiEbRK2BRIT_ES4_ called 4 returned 100% blocks executed 100%
+        4:   24:bool operator<=(const BR<R> & X1, const BR<R> & X2)
+        -:   25:{
+        4:   26:    N d = X1.x.size();
+call    0 returned 100%
+        4:   27:    if (X2.x.size()!=d){
+call    0 returned 100%
+branch  1 taken 25% (fallthrough)
+branch  2 taken 75%
+        1:   28:		return false;
+        -:   29:	}
+        7:   30:    for (N i = 0; i < d; i++){
+branch  0 taken 71% (fallthrough)
+branch  1 taken 29%
+        5:   31:        if (!(X1.x[i]<=X2.x[i])){
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+branch  3 taken 20% (fallthrough)
+branch  4 taken 80%
+        1:   32:			return false;
+        -:   33:		}
+        -:   34:	}
+        2:   35:    return true;
+        -:   36:}
+        -:   37:template <typename R> 
+function _Z5cmp_aIiEvRK2BRIT_ES4_Rc called 2 returned 100% blocks executed 100%
+        2:   38:void cmp_a(const BR<R> & X1, const BR<R> & X2, CMP & c)
+        -:   39:{
+        2:   40:    N d = X1.x.size();
+call    0 returned 100%
+        2:   41:    if (X2.x.size()!=d){
+call    0 returned 100%
+branch  1 taken 50% (fallthrough)
+branch  2 taken 50%
+        1:   42:		cout<<"cmp1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   43:		c=c_no;
+        -:   44:	} 
+        2:   45:    if (c == c_no){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   46:		cout<<"cmp2"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   47:        return;
+        -:   48:	}
+        3:   49:    for (N i = 0; c != c_no && i < d; i++){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 67% (fallthrough)
+branch  3 taken 33%
+        2:   50:		cout<<"cmp3"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   51:        //cmp_a(X1.x[i], X2.x[i], c);
+        -:   52:	}
+        1:   53:    return;
+        -:   54:}
+        -:   55:template <typename R> 
+function _Z3MinIiE2PRIT_ERK2BRIS1_E called 1 returned 100% blocks executed 100%
+        1:   56:PR<R> Min(const BR<R> &X)
+        -:   57:{
+        1:   58:    N d=X.x.size();
+call    0 returned 100%
+        1:   59:    PR<R> p(d);
+call    0 returned 100%
+        3:   60:    for (N i=0; i<d; i++)
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        2:   61:        p.x[i]=X.x[i].l;
+call    0 returned 100%
+call    1 returned 100%
+        1:   62:    return p;
+        -:   63:}
+        -:   64:template <typename R> 
+function _Z3MaxIiE2PRIT_ERK2BRIS1_E called 1 returned 100% blocks executed 100%
+        1:   65:PR<R> Max(const BR<R> &X)
+        -:   66:{
+        1:   67:    N d=X.x.size();
+call    0 returned 100%
+        1:   68:    PR<R> p(d);
+call    0 returned 100%
+        3:   69:    for (N i=0; i<d; i++)
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        2:   70:        p.x[i]=X.x[i].u;
+call    0 returned 100%
+call    1 returned 100%
+        1:   71:    return p;
+        -:   72:}
+        -:   73:template <typename R> 
+function _ZlsIiERSoS0_RK2BRIT_E called 1 returned 100% blocks executed 100%
+        1:   74:ostream & operator<<(ostream & stream, const BR<R> & X)
+        -:   75:{
+        1:   76:    N d=X.x.size();
+call    0 returned 100%
+        -:   77:    //assume d>0
+        1:   78:    stream << X.x[0];
+call    0 returned 100%
+call    1 returned 100%
+        2:   79:    for (N i = 1; i < d; i++)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   80:        stream << "x" << X.x[i];
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        1:   81:    return stream;
+        -:   82:}
+        -:   83:

@@ -1,0 +1,456 @@
+        -:    0:Source:DAG-sum.tpp
+        -:    0:Graph:DAG-main-test.gcno
+        -:    0:Data:DAG-main-test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <iostream> //for debugging
+        -:    2:#include "functions.h"
+        -:    3:#include "DAG.h"
+        -:    4:
+        -:    5:template <typename R> 
+function _ZN3DAGIiE3sumEjj called 1 returned 100% blocks executed 100%
+        1:    6:N DAG<R>::sum(N i1,N i2)
+        -:    7:{
+        1:    8:    return 1;
+        -:    9:}
+        -:   10:
+        -:   11:template <typename R> 
+function _ZN3DAGIiE3sumEjjj called 6 returned 100% blocks executed 100%
+        6:   12:N DAG<R>::sum(N i1,N i2,N l)
+        -:   13:{
+        6:   14:    if (i1==0){
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        1:   15:		cout<<"sum1"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   16:		return i2;
+        -:   17:	}
+        5:   18:	cout<<"sum2"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        5:   19:    if (i2==0){
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:   20:		cout<<"sum3"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   21:		return i1;
+        -:   22:	}
+        4:   23:	cout<<"sum4"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        4:   24:    if (i1==i2){
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:   25:		cout<<"sum5"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   26:		return i1;
+        -:   27:	} 
+        3:   28:	cout<<"sum6"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        3:   29:    if (i1<i2)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        -:   30:    {
+        1:   31:		cout<<"sum7"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   32:        N i=i1;
+        1:   33:        i1=i2;
+        1:   34:        i2=i;
+        -:   35:    }
+        3:   36:	cout<<"sum8"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        -:   37:    //i1>i2>0
+        3:   38:    i1--;
+        3:   39:    i2--;
+        3:   40:    if (U[l][i1][i2]!=0){	
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+branch  3 taken 33% (fallthrough)
+branch  4 taken 67%
+        1:   41:		cout<<"sum9"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   42:        return U[l][i1][i2];
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        -:   43:	}
+        2:   44:	cout<<"sum10"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        2:   45:    if (l==0){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   46:		cout<<"sum11"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   47:        return 1;
+        -:   48:	}
+        -:   49:    else{
+        1:   50:		cout<<"sum12"<<endl;
+call    0 returned 100%
+call    1 returned 100%
+        1:   51:        return 1;
+        -:   52:	}
+        -:   53:}
+        -:   54:
+        -:   55:template <typename R> 
+function _ZN3DAGIiE3sumERK4NodeIiES4_j called 5 returned 100% blocks executed 98%
+        5:   56:Node<R> DAG<R>::sum(const Node<R> & X1, const Node<R> & X2, N l)
+        -:   57:{
+        5:   58:    Node<R> X;
+call    0 returned 100%
+        5:   59:    N n1 = X1.x.size(), n2 = X2.x.size();
+call    0 returned 100%
+call    1 returned 100%
+        5:   60:    N i1 = 0, u1 = 0, ux1 = X1.ux[i1];
+call    0 returned 100%
+        5:   61:    R x1=X1.x[i1];
+call    0 returned 100%
+        5:   62:    N i2 = 0, u2 = 0, ux2 = X2.ux[i2];
+call    0 returned 100%
+        5:   63:    R x2=X2.x[i2];
+call    0 returned 100%
+        5:   64:    N u=0, ux, uu;
+        -:   65:    R x;
+       21:   66:    while (i1 < n1 && i2 < n2)
+branch  0 taken 77% (fallthrough)
+branch  1 taken 23%
+branch  2 taken 80% (fallthrough)
+branch  3 taken 20%
+        -:   67:    {
+        8:   68:		cout<<"sum1"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        8:   69:        if (x1 < x2)
+branch  0 taken 38% (fallthrough)
+branch  1 taken 63%
+        -:   70:        {
+        3:   71:			cout<<"sum2"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        3:   72:            x=x1;
+        3:   73:            ux=1;
+        3:   74:            i1++;
+        3:   75:            if (i1 < n1)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        -:   76:            {
+        1:   77:				cout<<"sum3"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   78:                u1 = X1.u[i1 - 1];
+call    0 returned 100%
+        1:   79:                ux1 = X1.ux[i1];
+call    0 returned 100%
+        1:   80:                x1=X1.x[i1];
+call    0 returned 100%
+        -:   81:            }
+        -:   82:            else{
+        2:   83:				cout<<"sum4"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:   84:                u1 = 0;
+        -:   85:			}
+        -:   86:        }
+        5:   87:        else if (x1 > x2)
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        -:   88:        {	
+        3:   89:			cout<<"sum5"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        3:   90:            x=x2;
+        3:   91:            ux=1;
+        3:   92:            i2++;
+        3:   93:            if (i2 < n2)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        -:   94:            {
+        1:   95:				cout<<"sum6"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:   96:                u2 = X2.u[i2 - 1];
+call    0 returned 100%
+        1:   97:                ux2 = X2.ux[i2];
+call    0 returned 100%
+        1:   98:                x2=X2.x[i2];
+call    0 returned 100%
+        -:   99:            }
+        -:  100:            else{
+        2:  101:				cout<<"sum7"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  102:                u2 = 0;
+        -:  103:			}
+        -:  104:        }
+        -:  105:        else
+        -:  106:        {
+        2:  107:			cout<<"sum8"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        2:  108:            x=x1;
+        2:  109:            ux=1;
+        2:  110:            i1++;
+        2:  111:            if (i1 < n1)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  112:            {
+        1:  113:				cout<<"sum9"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  114:                u1 = X1.u[i1 - 1];
+call    0 returned 100%
+        1:  115:                ux1 = X1.ux[i1];
+call    0 returned 100%
+        1:  116:                x1=X1.x[i1];
+call    0 returned 100%
+        -:  117:            }
+        -:  118:            else{
+        1:  119:				cout<<"sum10"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  120:                u1 = 0;
+        -:  121:			}
+        2:  122:            i2++;
+        2:  123:            if (i2 < n2)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  124:            {	
+        1:  125:				cout<<"sum11"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  126:                u2 = X2.u[i2 - 1];
+call    0 returned 100%
+        1:  127:                ux2 = X2.ux[i2];
+call    0 returned 100%
+        1:  128:                x2=X2.x[i2];
+call    0 returned 100%
+        -:  129:            }
+        -:  130:            else{
+        1:  131:				cout<<"sum12"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  132:                u2 = 0;
+        -:  133:			}
+        -:  134:        }
+        8:  135:        uu=1;
+        8:  136:        if (u!=ux||ux!=uu)
+branch  0 taken 38% (fallthrough)
+branch  1 taken 63%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:  137:        {
+        5:  138:			cout<<"sum13"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        5:  139:            X.x.push_back(x);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        5:  140:            X.ux.push_back(ux);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        5:  141:            X.u.push_back(uu);
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+        5:  142:            u=uu;
+        -:  143:        }
+        8:  144:		cout<<"sum14"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        -:  145:    }
+        5:  146:	cout<<"sum15"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        5:  147:    if (i1<n1)
+branch  0 taken 40% (fallthrough)
+branch  1 taken 60%
+        -:  148:    {
+        2:  149:		cout<<"sum16"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        5:  150:        for(N i=i1; i<n1; i++)
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        -:  151:        {
+        3:  152:			cout<<"sum17"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        3:  153:            X.x.push_back(X1.x[i]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        3:  154:            X.ux.push_back(X1.ux[i]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        -:  155:        }
+        2:  156:		cout<<"sum18"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        3:  157:        for(N i=i1; i<n1-1; i++){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:  158:			cout<<"sum19"<<endl;            
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  159:			X.u.push_back(X1.u[i]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        -:  160:		}	
+        -:  161:    }
+        3:  162:    else if (i2<n2)
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        -:  163:    {
+        2:  164:		cout<<"sum20"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        5:  165:        for(N i=i2; i<n2; i++)
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        -:  166:        {
+        3:  167:			cout<<"sum21"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        3:  168:            X.x.push_back(X2.x[i]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        3:  169:            X.ux.push_back(X2.ux[i]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        -:  170:        }
+        3:  171:        for(N i=i2; i<n2-1; i++){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:  172:			cout<<"sum22"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  173:            X.u.push_back(X2.u[i]);
+call    0 returned 100%
+call    1 returned 100%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0% (throw)
+        -:  174:		}
+        -:  175:    }
+        -:  176:    else{
+        1:  177:        cout<<"sum23"<<endl;
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0% (throw)
+call    3 returned 100%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0% (throw)
+        1:  178:		X.u.pop_back();
+call    0 returned 100%
+        -:  179:	}
+        5:  180:    return X;
+call    0 never executed
+        -:  181:}
+        -:  182:
